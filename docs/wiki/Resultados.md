@@ -1,6 +1,6 @@
 # Resultados
 
-La preparación incluye pruebas semilla ejecutables para dominio, aplicación, infraestructura, integración real y sistema HTTP.
+La entrega incluye pruebas ejecutables para dominio, aplicación, infraestructura, integración real y sistema HTTP.
 
 ## Evidencias esperadas
 
@@ -9,4 +9,11 @@ La preparación incluye pruebas semilla ejecutables para dominio, aplicación, i
 - `pnpm coverage`
 - `pnpm verify`
 
-Los resultados finales de cada ejecución deben guardarse en `docs/evidence/` durante la entrega final.
+Los resultados finales de cada ejecución se guardan en `docs/evidence/`.
+
+## Resumen esperado
+
+- `pnpm typecheck`: sin errores.
+- `pnpm test`: 7 archivos, 42 pruebas en verde.
+- `pnpm coverage`: statements 97.11%, branches 90.62%, functions 100%, lines 97.11%.
+- `pnpm verify`: comando único de verificación en verde.

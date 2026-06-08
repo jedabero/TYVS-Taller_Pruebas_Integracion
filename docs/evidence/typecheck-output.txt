@@ -1,0 +1,4 @@
+
+> tyvs-taller-pruebas-integracion@1.0.0 typecheck /home/jedabero/projects/tyvds/TYVS-Taller_Pruebas_Integracion
+> tsc --noEmit
+

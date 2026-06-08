@@ -1,0 +1,14 @@
+README.md
+coverage
+defectos.md
+defectos_template.md
+docs
+integrantes.txt
+node_modules
+package.json
+pnpm-lock.yaml
+registraduria
+src
+tests
+tsconfig.json
+vitest.config.ts

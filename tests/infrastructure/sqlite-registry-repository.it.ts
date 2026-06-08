@@ -46,4 +46,42 @@ describe("SqliteRegistryRepository", () => {
     // Assert
     expect(result).toBeUndefined();
   });
+
+  it("shouldDeleteAllRecords", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const person: Person = {
+      name: "Cleanup",
+      id: 3002,
+      age: 34,
+      gender: Gender.FEMALE,
+      alive: true,
+    };
+    repository.save(person);
+
+    // Act
+    repository.deleteAll();
+
+    // Assert
+    expect(repository.existsById(3002)).toBe(false);
+    expect(repository.findById(3002)).toBeUndefined();
+  });
+
+  it("shouldRejectDuplicatedPrimaryKey", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const person: Person = {
+      name: "Duplicated",
+      id: 3003,
+      age: 34,
+      gender: Gender.FEMALE,
+      alive: true,
+    };
+    repository.save(person);
+
+    // Act and Assert
+    expect(() => repository.save(person)).toThrow();
+  });
 });

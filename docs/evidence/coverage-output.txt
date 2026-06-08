@@ -1,0 +1,33 @@
+
+> tyvs-taller-pruebas-integracion@1.0.0 coverage /home/jedabero/projects/tyvds/TYVS-Taller_Pruebas_Integracion
+> vitest run --coverage
+
+
+ RUN  v4.1.8 /home/jedabero/projects/tyvds/TYVS-Taller_Pruebas_Integracion
+      Coverage enabled with v8
+
+
+ Test Files  7 passed (7)
+      Tests  42 passed (42)
+   Start at  19:30:52
+   Duration  1.35s (transform 645ms, setup 0ms, import 2.37s, tests 514ms, environment 2ms)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   97.11 |    90.62 |     100 |   97.11 |                   
+ ...cation/usecase |   95.23 |    93.75 |     100 |   95.23 |                   
+  ...y-use-case.ts |   95.23 |    93.75 |     100 |   95.23 | 13                
+ src/delivery/http |   96.66 |       92 |     100 |   96.66 |                   
+  ...controller.ts |   95.65 |       92 |     100 |   95.65 | 68                
+ ...re/persistence |   96.15 |    66.66 |     100 |   96.15 |                   
+  ...repository.ts |   96.15 |    66.66 |     100 |   96.15 | 100               
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 97.11% ( 101/104 )
+Branches     : 90.62% ( 58/64 )
+Functions    : 100% ( 25/25 )
+Lines        : 97.11% ( 101/104 )
+================================================================================

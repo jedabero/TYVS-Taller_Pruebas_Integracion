@@ -61,6 +61,14 @@ pnpm verify
 - Registro de defectos: `defectos.md`.
 - Reporte de planeación: `docs/planning-report.md`.
 
+## Mapeo HTTP
+
+- `200`: registro válido.
+- `400`: payload inválido, género inválido o ID inválido.
+- `409`: registro duplicado.
+- `422`: menor de edad, persona fallecida o edad inválida.
+- `500`: error no controlado de infraestructura.
+
 ## Estado actual
 
-El repositorio queda preparado para desarrollar el taller por fases. Incluye una base ejecutable con pruebas semilla, pero no implementa todavía todos los escenarios finales del taller.
+El repositorio implementa las fases del taller en TypeScript y queda verificable con `pnpm verify`. La carpeta `registraduria/` se conserva únicamente como referencia académica Java/Maven del taller original.

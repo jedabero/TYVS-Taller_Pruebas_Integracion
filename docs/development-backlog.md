@@ -2,6 +2,10 @@
 
 Este backlog divide la adaptación TypeScript del taller de integración y sistema en fases pequeñas, revisables y aptas para commits manuales.
 
+## Estado final
+
+Todas las fases quedaron implementadas y verificables mediante `pnpm verify`. La lista se conserva como trazabilidad académica de la ejecución por fases.
+
 ## Fase 0 — Preparación y migración
 
 - Inspeccionar ambos repositorios.

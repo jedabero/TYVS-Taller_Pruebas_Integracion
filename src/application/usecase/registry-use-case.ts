@@ -9,14 +9,14 @@ export class RegistryUseCase {
   constructor(private readonly repository: RegistryRepositoryPort) {}
 
   registerVoter(person: Person | null | undefined): RegisterResult {
+    if (person == null) {
+      return RegisterResult.INVALID;
+    }
+
     const validationResult = this.validatePerson(person);
 
     if (validationResult !== RegisterResult.VALID) {
       return validationResult;
-    }
-
-    if (person == null) {
-      return RegisterResult.INVALID;
     }
 
     if (this.repository.existsById(person.id)) {
@@ -28,11 +28,7 @@ export class RegistryUseCase {
     return RegisterResult.VALID;
   }
 
-  private validatePerson(person: Person | null | undefined): RegisterResult {
-    if (person == null) {
-      return RegisterResult.INVALID;
-    }
-
+  private validatePerson(person: Person): RegisterResult {
     if (person.id <= 0) {
       return RegisterResult.INVALID;
     }

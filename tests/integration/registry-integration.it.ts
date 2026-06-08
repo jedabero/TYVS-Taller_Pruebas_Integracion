@@ -58,4 +58,88 @@ describe("Registry integration", () => {
     // Assert
     expect(result).toBe(RegisterResult.DUPLICATED);
   });
+
+  it("shouldNotSaveUnderagePerson", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const registry = new RegistryUseCase(repository);
+    const person: Person = {
+      name: "Underage",
+      id: 4003,
+      age: 17,
+      gender: Gender.UNIDENTIFIED,
+      alive: true,
+    };
+
+    // Act
+    const result = registry.registerVoter(person);
+
+    // Assert
+    expect(result).toBe(RegisterResult.UNDERAGE);
+    expect(repository.findById(4003)).toBeUndefined();
+  });
+
+  it("shouldNotSaveDeadPerson", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const registry = new RegistryUseCase(repository);
+    const person: Person = {
+      name: "Dead",
+      id: 4004,
+      age: 40,
+      gender: Gender.FEMALE,
+      alive: false,
+    };
+
+    // Act
+    const result = registry.registerVoter(person);
+
+    // Assert
+    expect(result).toBe(RegisterResult.DEAD);
+    expect(repository.findById(4004)).toBeUndefined();
+  });
+
+  it("shouldNotSaveInvalidPerson", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const registry = new RegistryUseCase(repository);
+    const person: Person = {
+      name: "Invalid",
+      id: 0,
+      age: 40,
+      gender: Gender.FEMALE,
+      alive: true,
+    };
+
+    // Act
+    const result = registry.registerVoter(person);
+
+    // Assert
+    expect(result).toBe(RegisterResult.INVALID);
+    expect(repository.findById(0)).toBeUndefined();
+  });
+
+  it("shouldNotSaveInvalidAgePerson", async () => {
+    // Arrange
+    const repository = await createTestRegistryRepository();
+    repositories.add(repository);
+    const registry = new RegistryUseCase(repository);
+    const person: Person = {
+      name: "Too Old",
+      id: 4005,
+      age: 121,
+      gender: Gender.MALE,
+      alive: true,
+    };
+
+    // Act
+    const result = registry.registerVoter(person);
+
+    // Assert
+    expect(result).toBe(RegisterResult.INVALID_AGE);
+    expect(repository.findById(4005)).toBeUndefined();
+  });
 });

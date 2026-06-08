@@ -74,20 +74,14 @@ La carpeta `registraduria/` se conserva intacta como referencia académica del t
 
 ## Riesgos técnicos pendientes
 
-- Definir mapeo HTTP final para `DUPLICATED`, `UNDERAGE`, `DEAD`, `INVALID` e `INVALID_AGE`.
-- Ampliar pruebas de integración para todos los resultados de negocio.
-- Simular excepción controlada del repositorio con mocks.
-- Decidir si se agregan `class-validator` y `class-transformer` para DTOs decorados.
-- Revisar si el endpoint debe responder `200` en lugar de `201` para alinearse con el texto del taller original.
-- Registrar que se evaluó `better-sqlite3`, pero se cambió a `sql.js` porque pnpm bloqueó el build nativo en este entorno no interactivo.
+- `class-validator` y `class-transformer` no se agregaron porque la validación manual cubre los criterios actuales; si el taller exige DTOs decorados, deben agregarse en una iteración posterior.
+- Se evaluó `better-sqlite3`, pero se cambió a `sql.js` porque pnpm bloqueó el build nativo en este entorno no interactivo.
 
 ## Próximos pasos recomendados
 
-- Completar Fase 1 con revisión de dependencias entre capas.
-- Completar Fase 3 cubriendo todos los resultados de negocio con SQLite real.
-- Completar Fase 4 con `vi.spyOn()` y excepciones controladas.
-- Completar Fase 5 definiendo semántica HTTP final.
-- Guardar evidencias de ejecución en `docs/evidence/`.
+- Revisar manualmente la Wiki antes de publicarla en GitHub Wiki.
+- Si se requiere validación declarativa de DTOs, agregar `class-validator` y `class-transformer` con pruebas adicionales.
+- Mantener `registraduria/` como referencia o moverlo en una decisión documental futura si el equipo quiere separar material original.
 
 ## Validaciones ejecutadas y resultados
 
@@ -109,7 +103,17 @@ ls: passed
 find . -maxdepth 4 -type f | sort: passed
 pnpm install: passed; pnpm mostró una advertencia residual de build ignorado para better-sqlite3, paquete ya no declarado en package.json
 pnpm typecheck: passed
-pnpm test: 7 test files passed, 27 tests passed
-pnpm coverage: passed, statements 92.47%, branches 81.81%, functions 100%, lines 92.47%
+pnpm test: 7 test files passed, 42 tests passed
+pnpm coverage: passed, statements 97.11%, branches 90.62%, functions 100%, lines 97.11%
 pnpm verify: passed; ejecuta typecheck, test y coverage correctamente
 ```
+
+## Evidencias generadas
+
+- `docs/evidence/ls-output.txt`
+- `docs/evidence/file-list-output.txt`
+- `docs/evidence/install-output.txt`
+- `docs/evidence/typecheck-output.txt`
+- `docs/evidence/test-output.txt`
+- `docs/evidence/coverage-output.txt`
+- `docs/evidence/verify-output.txt`

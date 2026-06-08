@@ -14,6 +14,10 @@ POST /register
 pnpm test:system
 ```
 
-## Pendiente
+## Mapeo final
 
-Definir el mapeo final de resultados de negocio a códigos HTTP para duplicados, menores de edad y personas fallecidas.
+- `200`: `VALID`.
+- `400`: payload inválido, género inválido o `INVALID`.
+- `409`: `DUPLICATED`.
+- `422`: `UNDERAGE`, `DEAD`, `INVALID_AGE`.
+- `500`: error no controlado de infraestructura.

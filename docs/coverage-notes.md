@@ -34,7 +34,21 @@ El reporte equivalente a `target/site/jacoco/index.html` es:
 coverage/index.html
 ```
 
-## Pendientes
+## Estado
 
-- Completar cobertura de mapeos HTTP cuando se definan códigos definitivos para `DUPLICATED`, `UNDERAGE`, `DEAD` e `INVALID_AGE`.
-- Documentar cualquier exclusión futura en este archivo.
+La suite final supera los umbrales globales. La evidencia actualizada se guarda en `docs/evidence/coverage-output.txt`.
+
+| Métrica | Resultado final |
+| --- | --- |
+| Statements | 97.11% |
+| Branches | 90.62% |
+| Functions | 100% |
+| Lines | 97.11% |
+
+## Código no cubierto
+
+Las líneas no cubiertas corresponden a ramas defensivas o de fallback:
+
+- `RegistryUseCase`: rama redundante de persona nula después del narrowing de TypeScript.
+- `RegistryController`: rama defensiva de validación.
+- `SqliteRegistryRepository`: fallback para género desconocido leído desde SQLite.

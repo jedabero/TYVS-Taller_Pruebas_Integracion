@@ -10,6 +10,10 @@ Se mantiene TypeScript porque el taller anterior ya adaptó explícitamente el d
 
 La misma regla de negocio puede verificarse en varios niveles: dominio puro, caso de uso con mock, caso de uso con SQLite y endpoint HTTP.
 
-## Riesgo pendiente
+## Decisiones cerradas
 
-La fase HTTP todavía requiere decidir la semántica final de códigos para resultados de negocio distintos de `VALID`.
+- `VALID` se mapea a HTTP `200`.
+- `INVALID` y payloads inválidos se mapean a HTTP `400`.
+- `DUPLICATED` se mapea a HTTP `409`.
+- `UNDERAGE`, `DEAD` e `INVALID_AGE` se mapean a HTTP `422`.
+- SQLite en memoria se implementa con `sql.js` para evitar builds nativos bloqueados por pnpm en modo no interactivo.

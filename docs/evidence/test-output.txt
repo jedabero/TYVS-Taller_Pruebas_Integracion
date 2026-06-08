@@ -1,0 +1,13 @@
+
+> tyvs-taller-pruebas-integracion@1.0.0 test /home/jedabero/projects/tyvds/TYVS-Taller_Pruebas_Integracion
+> vitest run
+
+
+ RUN  v4.1.8 /home/jedabero/projects/tyvds/TYVS-Taller_Pruebas_Integracion
+
+
+ Test Files  7 passed (7)
+      Tests  42 passed (42)
+   Start at  19:30:51
+   Duration  1.17s (transform 997ms, setup 0ms, import 2.59s, tests 470ms, environment 1ms)
+

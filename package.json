@@ -1,0 +1,46 @@
+{
+  "name": "tyvs-taller-pruebas-integracion",
+  "version": "1.0.0",
+  "description": "TypeScript adaptation of the integration and system testing workshop.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/domain tests/application",
+    "test:integration": "vitest run tests/infrastructure tests/integration",
+    "test:system": "vitest run tests/system",
+    "coverage": "vitest run --coverage",
+    "verify": "pnpm typecheck && pnpm test && pnpm coverage"
+  },
+  "keywords": [
+    "testing",
+    "integration-testing",
+    "system-testing",
+    "typescript",
+    "vitest",
+    "nestjs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "@nestjs/common": "^11.1.9",
+    "@nestjs/core": "^11.1.9",
+    "@nestjs/platform-express": "^11.1.9",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "sql.js": "^1.13.0"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^11.1.9",
+    "@types/node": "^24.0.0",
+    "@types/sql.js": "^1.4.9",
+    "@types/supertest": "^6.0.3",
+    "@vitest/coverage-v8": "^4.1.8",
+    "prettier": "^3.8.3",
+    "supertest": "^7.1.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}

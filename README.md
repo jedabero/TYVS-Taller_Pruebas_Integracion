@@ -69,6 +69,18 @@ pnpm verify
 - `422`: menor de edad, persona fallecida o edad inválida.
 - `500`: error no controlado de infraestructura.
 
+## Restricción de integración
+
+El repositorio automatiza la validación técnica mediante GitHub Actions. El workflow de CI se ejecuta en cada `push` y `pull_request`, instalando dependencias y ejecutando:
+
+```bash
+pnpm verify
+```
+
+Este comando valida type checking, pruebas automatizadas y cobertura.
+
+Para aplicar la restricción de integración en un entorno colaborativo, se debe activar una regla de protección sobre la rama `main` en GitHub y marcar el status check `CI / verify` como obligatorio. De esta forma, GitHub no permitirá integrar cambios mediante Pull Request si fallan la compilación TypeScript, las pruebas o la cobertura.
+
 ## Estado actual
 
 El repositorio implementa las fases del taller en TypeScript y queda verificable con `pnpm verify`. La carpeta `registraduria/` se conserva únicamente como referencia académica Java/Maven del taller original.

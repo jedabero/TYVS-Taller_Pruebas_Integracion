@@ -10,13 +10,11 @@ function createRepository(): RegistryRepositoryPort {
   const records = new Map<number, Person>();
 
   return {
-    initSchema: () => undefined,
     existsById: (id: number) => records.has(id),
     save: (person: Person) => {
       records.set(person.id, person);
     },
     findById: (id: number) => records.get(id),
-    deleteAll: () => records.clear(),
   };
 }
 

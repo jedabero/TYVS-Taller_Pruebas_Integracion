@@ -8,11 +8,9 @@ import { RegisterResult } from "../../src/domain/model/register-result.ts";
 
 function createMockRepository(existsById = false): RegistryRepositoryPort {
   return {
-    initSchema: vi.fn(),
     existsById: vi.fn(() => existsById),
     save: vi.fn(),
     findById: vi.fn(),
-    deleteAll: vi.fn(),
   };
 }
 

@@ -2,10 +2,10 @@ import { fileURLToPath } from "node:url";
 
 import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
 
+import type { RegistryRecord } from "../../application/model/registry-record.ts";
 import type { RegistryRepositoryPort } from "../../application/port/out/registry-repository-port.ts";
 import type { Person } from "../../domain/model/person.ts";
 import { Gender } from "../../domain/model/gender.ts";
-import type { RegistryRecord } from "./registry-record.ts";
 
 interface RegistryRow {
   id: number;
